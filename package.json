@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "nodemon server.js",
+    "bdev": "bottender dev",
+    "start": "nodemon server.js",
+    "lint": "eslint . ",
+    "test": "jest"
+  },
+  "dependencies": {
+    "bottender": "1.4.10",
+    "cors": "^2.8.5",
+    "eslint": "7.10.0",
+    "eslint-config-prettier": "6.12.0",
+    "eslint-plugin-prettier": "3.1.4",
+    "jest": "26.4.2",
+    "localtunnel": "^2.0.0",
+    "morgan": "^1.10.0",
+    "ngrok": "^3.3.0",
+    "node-persist": "^3.1.0",
+    "nodemon": "^2.0.4",
+    "prettier": "2.1.2",
+    "restify": "^8.5.1"
+  }
+}
