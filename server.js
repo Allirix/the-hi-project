@@ -6,6 +6,10 @@ const cors = require("cors");
 const logger = require("morgan");
 const storage = require("node-persist");
 
+const { spawn } = require("child_process");
+
+
+
 const port = Number(process.env.PORT) || 5000;
 
 storage.init({ dir: "./data" });
@@ -51,5 +55,30 @@ app.prepare().then(() => {
   server.listen(port, (err) => {
     if (err) throw err;
     console.log(`> Ready on http://localhost:${port}`);
+    tunnelService();
   });
+
+  
 });
+
+const tunnelService = async () => {
+  spawn("cd C:\\Users\\n9135766\\Documents\\GitHub\\the-hi-project", (error, stdout,stderr) => {
+    const ls = spawn("ls", ["-la"]);
+
+    ls.stdout.on("data", data => {
+        console.log(`stdout: ${data}`);
+    });
+
+    ls.stderr.on("data", data => {
+        console.log(`stderr: ${data}`);
+    });
+
+    ls.on('error', (error) => {
+        console.log(`error: ${error.message}`);
+    });
+
+    ls.on("close", code => {
+        console.log(`child process exited with code ${code}`);
+      });
+    }
+};
